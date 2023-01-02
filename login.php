@@ -3,12 +3,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/btslab/mysqlconnection.php');
 $em="";
 if(isset($_POST['Login']))
 {
-$username=$_POST['username'];
-$password=$_POST['password'];
+	
+$username=mysql_real_escape_string($_POST['username']);
+$password=mysql_real_escape_string($_POST['password']);
 
 
-        $username = mysql_real_escape_string($_POST['login']);
-        $password = mysql_real_escape_string($_POST['password']);
+    ;
 		$result=mysql_query("select * from users where username='$username' and password='$password' ") or die(mysql_error());;
 		if(mysql_num_rows($result))
 		{
