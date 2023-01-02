@@ -6,7 +6,7 @@ if(isset($_POST['Login']))
 $username=$_POST['username'];
 $password=$_POST['password'];
 
-		$result=mysql_query(sprintf("select * from users where username='%s' and password='%s' ", mysql_real_escape_string($username), mysql_real_escape_string($password) or die(mysql_error())));
+		$result=mysql_query("select * from users where username='$username' and password='$password' ") or die(mysql_error());;
 		if(mysql_num_rows($result))
 		{
 		$data=mysql_fetch_array($result);
