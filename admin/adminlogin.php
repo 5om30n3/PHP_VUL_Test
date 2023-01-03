@@ -12,7 +12,7 @@ if(isset($_POST['Login']))
  }
  else
  {
-	$password=sha1($password);
+	$password=sha256($password);
 	$result=mysql_query("select * from users where username='$username' and password='$password' and privilege='admin' ") or die(mysql_error());;
 	if(mysql_num_rows($result)==1)
 	{
